@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>HAJAR</title>
+</head>
+<body>
+    <div class="glow"></div>
+    <div class="container">
+        <h1>HAJAR</h1>
+        <div class="subtitle">L'eleganza in un nome...</div>
+    </div>
+
+    <script>
+        // Créer des pétales de jasmin
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.top = '-50px';
+            petal.style.animationDuration = (Math.random() * 4 + 5) + 's';
+            petal.style.animationDelay = Math.random() * 2 + 's';
+            
+            // Variation de taille
+            const size = Math.random() * 10 + 10;
+            petal.style.width = size + 'px';
+            petal.style.height = size + 'px';
+            
+            document.body.appendChild(petal);
+            
+            // Supprimer le pétale après l'animation
+            setTimeout(() => {
+                petal.remove();
+            }, 9000);
+        }
+
+        // Créer des cœurs
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '-50px';
+            heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            heart.style.animationDelay = Math.random() * 3 + 's';
+            
+            document.body.appendChild(heart);
+            
+            // Supprimer le cœur après l'animation
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+
+        // Créer des éléments régulièrement
+        setInterval(createPetal, 300);
+        setInterval(createHeart, 500);
+        
+        // Créer des éléments initiaux
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createPetal, i * 150);
+        }
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createHeart, i * 200);
+        }
+    </script>
+</body>
+</html>
